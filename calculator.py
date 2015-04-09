@@ -18,19 +18,28 @@ def calculator_2(string):
         return
 
     elif tokens[0] == "+":
-        running_sum = 0
+        running_total = 0
         for i in range(len(arguments)):
-            running_sum = add(running_sum, int(arguments[i]))
-        print running_sum
+            running_total = add(running_total, int(arguments[i]))
+        print running_total
 
     elif tokens[0] == "-":
-        print(subtract(int(tokens[1]),int(tokens[2])))
+        running_total = 0
+        for i in range(len(arguments)):
+            running_total = subtract(running_total, int(arguments[i]))
+        print running_total
 
     elif tokens[0] == "*":
-        print(multiply(int(tokens[1]),int(tokens[2])))    
+        running_total = 0
+        for i in range(len(arguments)):
+            running_total = multiply(running_total, int(arguments[i]))
+        print running_total
 
     elif tokens[0] == "/":
-        print(divide(int(tokens[1]),int(tokens[2])))
+        running_total = 0
+        for i in range(len(arguments)):
+            running_total = divide(running_total, int(arguments[i]))
+        print running_total
     
     elif tokens[0] == "square":
         print(square(int(tokens[1])))
@@ -39,7 +48,10 @@ def calculator_2(string):
         print(cube(int(tokens[1])))
 
     elif tokens[0] == "pow":
-        print(power(float(tokens[1]),float(tokens[2])))       
+        running_total = 0
+        for i in range(len(arguments)):
+            running_total = power(running_total, int(arguments[i]))
+        print running_total      
 
     elif tokens[0] == "mod":
         print(divide(int(tokens[1]),int(tokens[2]))) 
@@ -47,5 +59,5 @@ def calculator_2(string):
 
 
 
-calculator_2("+ 2 3 4 5")
+calculator_2("pow 2 2 2")
 
