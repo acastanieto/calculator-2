@@ -1,0 +1,12 @@
+How to use this calculator-2 program:
+
+To multiply two or more numbers:
+
+enter:
+multiply(* 2 2 2 2)
+
+
+To divide two or more numbers:
+
+enter:
+divide(/ 10 2 2 2)
