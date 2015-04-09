@@ -10,54 +10,70 @@ from arithmetic import *
 
 # Your code goes here
 def calculator_2(string):
-
-    tokens = string.split(" ")
-    arguments = tokens[2:]
-    running_total = int(tokens[1])
-
-    if tokens[0] == "q":
-        return
-
-    elif tokens[0] == "+":
-        for i in range(len(arguments)):
-            running_total = add(running_total, int(arguments[i]))
-        print running_total
-
-    elif tokens[0] == "-":
-        for i in range(len(arguments)):
-            running_total = subtract(running_total, int(arguments[i]))
-        print running_total
-
-    elif tokens[0] == "*":
-        for i in range(len(arguments)):
-            running_total = multiply(running_total, int(arguments[i]))
-        print running_total
-
-    elif tokens[0] == "/":
-        for i in range(len(arguments)):
-            running_total = divide(running_total, float(arguments[i]))
-        print running_total
+    """Calculator program that takes a string as a parameter with the 
+    operator as the prefix"""
     
-    elif tokens[0] == "square":
-        print square(int(tokens[1]))
+    string = raw_input("Enter the calculation you want to solve")
+    instructions = open("calculator-2-instructions.txt")
 
-    elif tokens[0] == "cube":
-        print cube(int(tokens[1]))
+    try:
 
-    elif tokens[0] == "pow":
-        for i in range(len(arguments)):
-            running_total = power(running_total, float(arguments[i]))
-        print running_total
-    
-    elif tokens[0] == "mod":
-        print mod(int(tokens[1]),int(tokens[2]))
+        tokens = string.split(" ")
+        operator = tokens[0]
+        arguments = tokens[2:]
+        running_total = int(tokens[1])
 
+        if operator == "q":
+            return
+
+        elif operator == "+":
+            for i in range(len(arguments)):
+                running_total = add(running_total, int(arguments[i]))
+            print running_total
+
+        elif operator == "-":
+            for i in range(len(arguments)):
+                running_total = subtract(running_total, int(arguments[i]))
+            print running_total
+
+        elif operator == "*":
+            for i in range(len(arguments)):
+                running_total = multiply(running_total, int(arguments[i]))
+            print running_total
+
+        elif operator == "/":
+            for i in range(len(arguments)):
+                running_total = divide(running_total, float(arguments[i]))
+            print running_total
+        
+        elif operator == "square":
+            print square(int(tokens[1]))
+
+        elif operator == "cube":
+            print cube(int(tokens[1]))
+
+        elif operator == "pow":
+            for i in range(len(arguments)):
+                running_total = power(running_total, float(arguments[i]))
+            print running_total
+        
+        elif operator == "mod":
+            print mod(int(tokens[1]),int(tokens[2]))
+
+    except:
+            print "Next time, enter a real number/operator!!"
+            want_instructions = raw_input("Would you like instructions on how to use this program? Type yes or no ").lower()
+            if want_instructions == "yes":
+                for line in instructions:
+                    line = line.rstrip()
+                    print line
 
 
 
 calculator_2("- 10 2 2") # 6
 calculator_2("pow 2 2 2") # 16
 calculator_2("/ 10 2 2") # 2.5
+calculator_2("/ 10 five 2")
 
 
 
