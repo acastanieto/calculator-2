@@ -13,9 +13,6 @@ def calculator_2(string):
 
     tokens = string.split(" ")
     arguments = tokens[1:]
-    operators = ["+","-","/","square","cube","pow","mod"]
-    function_names = ["add","subtract","divide","square","cube","power","mod"]
-    final_function_name = function_names[operators.index(tokens[0])]
 
     if tokens[0] == "q":
         return
