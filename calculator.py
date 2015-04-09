@@ -11,62 +11,75 @@ from arithmetic import *
 # Your code goes here
 def calculator_2(string):
     """Calculator program that takes a string as a parameter with the 
-    operator as the prefix"""
+    operator as the prefix"""    
     
-    string = raw_input("Enter the calculation you want to solve")
-    instructions = open("calculator-2-instructions.txt")
 
-    try:
+    valid = False
 
-        tokens = string.split(" ")
-        operator = tokens[0]
-        arguments = tokens[2:]
-        running_total = int(tokens[1])
+    while valid == False:
 
-        if operator == "q":
-            return
+        string = raw_input("Enter the calculation you want to solve ")
 
-        elif operator == "+":
-            for i in range(len(arguments)):
-                running_total = add(running_total, int(arguments[i]))
-            print running_total
+        try:
 
-        elif operator == "-":
-            for i in range(len(arguments)):
-                running_total = subtract(running_total, int(arguments[i]))
-            print running_total
+            tokens = string.split(" ")
+            operator = tokens[0]
+            arguments = tokens[2:]
+            running_total = int(tokens[1])
 
-        elif operator == "*":
-            for i in range(len(arguments)):
-                running_total = multiply(running_total, int(arguments[i]))
-            print running_total
+            if operator == "q":
+                return
 
-        elif operator == "/":
-            for i in range(len(arguments)):
-                running_total = divide(running_total, float(arguments[i]))
-            print running_total
-        
-        elif operator == "square":
-            print square(int(tokens[1]))
+            elif operator == "+":
+                for i in range(len(arguments)):
+                    running_total = add(running_total, int(arguments[i]))
+                print running_total
 
-        elif operator == "cube":
-            print cube(int(tokens[1]))
+            elif operator == "-":
+                for i in range(len(arguments)):
+                    running_total = subtract(running_total, int(arguments[i]))
+                print running_total
 
-        elif operator == "pow":
-            for i in range(len(arguments)):
-                running_total = power(running_total, float(arguments[i]))
-            print running_total
-        
-        elif operator == "mod":
-            print mod(int(tokens[1]),int(tokens[2]))
+            elif operator == "*":
+                for i in range(len(arguments)):
+                    running_total = multiply(running_total, int(arguments[i]))
+                print running_total
 
-    except:
-            print "Next time, enter a real number/operator!!"
-            want_instructions = raw_input("Would you like instructions on how to use this program? Type yes or no ").lower()
-            if want_instructions == "yes":
-                for line in instructions:
-                    line = line.rstrip()
-                    print line
+            elif operator == "/":
+                for i in range(len(arguments)):
+                    running_total = divide(running_total, float(arguments[i]))
+                print running_total
+            
+            elif operator == "square":
+                print square(int(tokens[1]))
+
+            elif operator == "cube":
+                print cube(int(tokens[1]))
+
+            elif operator == "pow":
+                for i in range(len(arguments)):
+                    running_total = power(running_total, float(arguments[i]))
+                print running_total
+            
+            elif operator == "mod":
+                print mod(int(tokens[1]),int(tokens[2]))
+
+            valid = True
+
+        except:
+                print "Next time, enter a real number/operator!!"
+                
+                instructions = open("calculator-2-instructions.txt")
+                want_instructions = raw_input("Would you like instructions on how to use this program? Type yes or no ").lower()
+                if want_instructions == "yes":
+                    for line in instructions:
+                        line = line.rstrip()
+                        print line
+
+                play_again = raw_input("Do you want to try again? Enter yes or no ").lower()
+                if play_again == "yes":
+                    string = raw_input("Type in another string ")
+
 
 
 
